@@ -21,16 +21,35 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.0-preview.7.23375.9" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove="Views\Category\" />
+    <None Remove="Areas\" />
+    <None Remove="Areas\Admin\" />
+    <None Remove="Areas\Admin\Controllers\" />
+    <None Remove="Areas\Admin\Views\" />
+    <None Remove="Areas\Customer\" />
+    <None Remove="Areas\Customer\Controllers\" />
+    <None Remove="Areas\Customer\Views\" />
+    <None Remove="Areas\Admin\Views\Category\" />
+    <None Remove="Areas\Customer\Views\Home\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Category\" />
+    <Folder Include="Areas\" />
+    <Folder Include="Areas\Admin\" />
+    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\Views\" />
+    <Folder Include="Areas\Customer\" />
+    <Folder Include="Areas\Customer\Controllers\" />
+    <Folder Include="Areas\Customer\Views\" />
+    <Folder Include="Areas\Admin\Views\Category\" />
+    <Folder Include="Areas\Customer\Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BookStore.DataAccess\BookStore.DataAccess.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
     <ProjectReference Include="..\BookStore.Models\BookStore.Models.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+    <ProjectReference Include="..\BookStore.Utility\BookStore.Utility.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
   </ItemGroup>

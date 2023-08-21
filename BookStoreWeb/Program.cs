@@ -4,21 +4,13 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using BookStore.DataAccess.Data;
+using BookStore.DataAccess.Repository.IRepository;
+using BookStore.DataAccess.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-//builder.Services.AddDbContext<ApplicationDbContent>(options=>
-//    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-//var keyVaultUrl = new Uri(builder.Configuration.GetSection("KeyVaultURL").Value!);
-//var azureCredential = new DefaultAzureCredential();
-//builder.Configuration.AddAzureKeyVault(keyVaultUrl, azureCredential);
-
-//var cs = builder.Configuration.GetSection("ConnectionStrings--DefaultConnection").Value;
-//builder.Services.AddDbContext<ApplicationDbContent>(options => options.UseSqlServer(cs));
-
 
 var keyVaultUrl = new Uri(builder.Configuration.GetSection("KeyVaultURL").Value!);
 var azureCredential = new DefaultAzureCredential();
@@ -36,6 +28,8 @@ else
 
 builder.Services.AddRazorPages()
     .AddRazorRuntimeCompilation();
+
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
 
@@ -56,7 +50,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{area=Customer}/{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
 

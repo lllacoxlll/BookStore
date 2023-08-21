@@ -1,0 +1,12 @@
+﻿using System;
+
+namespace BookStore.DataAccess.Repository.IRepository
+{
+	public interface IUnitOfWork
+	{
+		ICategoryRepository Category { get; }
+
+		void Save();
+	}
+}
+
