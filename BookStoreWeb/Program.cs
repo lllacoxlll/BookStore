@@ -1,9 +1,9 @@
 ﻿using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 using System;
-using BookStoreWeb.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using BookStore.DataAccess.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
